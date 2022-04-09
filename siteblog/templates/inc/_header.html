@@ -1,0 +1,26 @@
+<!-------------------Navigation-------------------------->
+{% load menu %}
+<nav class="nav">
+    <div class="nav-menu flex-row">
+        <div class="nav-brand">
+            <a href="{% url 'home' %}" class="text-grey">Sport & Life</a>
+        </div>
+        <div class="toggle-collapse">
+            <div class="toggle-icons">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+        {% show_menu %}
+
+
+        <div class="social text-gray">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!----------x---------Navigation-------------x------------->

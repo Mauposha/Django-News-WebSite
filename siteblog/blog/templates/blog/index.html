@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sidebar %}
+{% block title %} {{ title}} :: {{ block.super }} {% endblock %}
+
+{% block content %}
+<!------------Blog Carousel----------------->
+<section>
+    <div class="blog">
+        <div class="container">
+            <div class="owl-carousel owl-theme blog-post">
+                {% for post in posts|slice:"0:6" %}
+
+                    <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                        {% if post.photo %}
+                        <img src="{{ post.photo.url }}" class="img" style="max-height:200px" alt="{{ post.title}}">
+                        {% else %}
+                        <img src="https://picsum.photos/id/1060/300/201/?blur=2" alt="{{ post.title }}">
+                        {% endif %}
+
+                        <div class="blog-title" style="min-height:150px">
+                            <h3><a href="{{ post.get_absolute_url }}">{{ post.title|truncatewords_html:8|safe }}</a></h3>
+                            <a href="{{ post.get_absolute_url }}"><button class="btn btn-blog">Continuer la lecture</button></a>
+                        </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!------X-------Blog Carousel--------X------->
+
+
+<!--------------Site Content---------------->
+<section class="container">
+
+    <div class="site-content">
+        <div class="posts">
+            {% for post in posts %}
+                <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="post-image">
+                            <div>
+                                {% if post.photo %}
+                                <img src="{{ post.photo.url }}" class="img" alt="{{ post.title}}">
+                                {% else %}
+                                <img src="https://picsum.photos/id/1060/300/201/?blur=2" alt="{{ post.title }}">
+                                {% endif %}
+                            </div>
+
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{ post.created_at }}</span>
+                                <span>Vues: {{ post.views }}</span>
+                                <span>Catégorie: <a href="{{ post.category.get_absolute_url }}">{{ post.category }} </a></span>
+                            </div>
+                    </div>
+                    <div class="post-title">
+                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        <p>{{ post.content|truncatewords_html:40|safe}}</p>
+                        <a href="{{ post.get_absolute_url }}"><button class="btn post-btn">Continuer la lecture&nbsp;<i class="fas fa-arrow-right"></i></button></a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% if page_obj.has_other_pages %}
+                    <div class="pagination flex-row">
+                            {% for p in page_obj.paginator.page_range %}
+                                {% if page_obj.number == p %}
+                                    <a href="?page={{ p }}" class="pages">{{ p }}</a>
+                                {% else %}
+                                    <a href="?page={{ p }}" class="pages">{{ p }}</a>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
+                            {% endif %}
+                    </div>
+                {% endif %}
+
+
+
+        </div>
+
+
+            <!--Sidebar-->
+            <aside class="sidebar">
+                <div class="popular-post">
+                    {% include 'inc/_sidebar.html' %}
+                <!-----X---Sidebar-------X----->
+
+                <!------Popular Post------>
+                    {% get_popular %}
+
+                    <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                        <h2>Newsletter</h2>
+                        <div class="form-element">
+                            <input type="text" class="input-element" placeholder="Email">
+                            <button class="btn form-btn">Abonnez-vous!</button>
+                        </div>
+                    </div>
+                    {% get_tags %}
+               </div>
+            </aside>
+        </div>
+</section>
+
+<!------X--------Site Content--------X-------->
+{% endblock %}

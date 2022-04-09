@@ -1,0 +1,9 @@
+<div class="{{ sidebar_class }}">
+    {% for item in categories %}
+    <ul class="category-list">
+        <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+            <a href="{{ item.get_absolute_url }}">{{ item.title}}</a>
+        </li>
+    </ul>
+    {% endfor %}
+</div>

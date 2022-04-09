@@ -1,0 +1,99 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Sport {% endblock %}</title>
+<!----Font Awesome----->
+<link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+
+<!----------Owl-Carousel---------->
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+<!---------AOS Library-------->
+<link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+
+<!--Custom Style-->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+
+<!-------------------Navigation-------------------------->
+
+{% include 'inc/_header.html' %}
+
+
+<!----------x---------Navigation-------------x------------->
+
+
+
+<!----------Main Site Section------------->
+
+<main>
+<!-------------Site Title----------------->
+
+    <section class="site-title">
+        <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+            <h3>Sport & Life </h3>
+            <h1>"A champion<br>is someone who gets up<br>when he can't."</h1>
+
+        </div>
+
+    </section>
+
+<!--------X-------Site Title--------X--------->
+
+
+
+
+<!--------------Site Content---------------->
+
+{% block content %}
+
+{% include 'inc/_sidebar.html' %}
+
+{% endblock %}
+<!------X--------Site Content--------X-------->
+
+
+</main>
+
+<!-----x-----Main Site Section------x------>
+
+<!-------------------Footer------------------------>
+
+{% include 'inc/_footer.html' %}
+
+
+<!-----------X--------Footer----------X-------------->
+
+
+
+
+
+
+
+
+<!--JQuery Library file-->
+<script src="{% static 'js/Jquery3.6.0.min.js' %}"></script>
+
+<!------------Owl-Carousel js--------------->
+
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+<!----AOS JS------->
+<script src="{% static 'js/aos.js' %}"></script>
+
+
+
+
+<!--Custom Javascript file-->
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

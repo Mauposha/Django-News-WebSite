@@ -1,0 +1,56 @@
+<!-------------------Footer------------------------>
+
+<footer class="footer">
+    <div class="container">
+        <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+            <h2>À propos de nous</h2>
+            <p style="text-align: justify">Toute l'actualité du sport heure par heure avec les résultats des matchs, les interviews, les transferts et les news dans toutes les disciplines. Découvrez les tops News directement en ligne sans voir à vous déplacer.</p>
+        </div>
+
+        <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+            <h2>Newsletter</h2>
+            <p>Deux fois par semaine toute l'actualité dans votre boite mail.</p>
+            <div class="form-element">
+                <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+
+        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+        <h2>Instagram</h2>
+            <div class="flex-row">
+                {% for post in posts|slice:"0:3" %}
+                    <img src="{{ post.photo.url }}" class="img" alt="{{ post.title}}">
+                {% endfor %}
+            </div>
+            <div class="flex-row">
+                {% for post in posts|slice:"3:6" %}
+                    <img src="{{ post.photo.url }}" class="img" alt="{{ post.title}}">
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="follow" data-aos="fade-left" data-aos-delay="200">
+            <h2>Suivez-nous!</h2>
+            <!--<p>Let us be Social</p>-->
+            <div>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+    </div>
+    <div class="rights flex-row">
+        <h4 class="text-gray">
+            Copyright ©2021 All rights reserved | made by Maupome Anna ♥
+        </h4>
+    </div>
+
+
+    <div class="move-up">
+        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+    </div>
+</footer>
+
+
+<!-----------X--------Footer----------X-------------->
